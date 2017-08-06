@@ -54,9 +54,4 @@ class Convert extends Command
             $output->writeln($markdownData, OutputInterface::OUTPUT_RAW);
         }
     }
-
-    private function showVersion(InputInterface $input, OutputInterface $output)
-    {
-        $output->writeln($this->getApplication()->getLongVersion());
-    }
 }
