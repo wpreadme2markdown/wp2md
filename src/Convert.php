@@ -28,9 +28,21 @@ class Convert extends Command
         $this->addOption('input',   'i',    InputOption::VALUE_REQUIRED,    'WordPress Plugin readme.txt');
         $this->addOption('output',  'o',    InputOption::VALUE_REQUIRED,    'Markdown file');
         $this->addOption('slug',    's',    InputOption::VALUE_REQUIRED,    'Plugin slug');
+
+        // add version command to the single command mode
+        $this->addOption('version', 'V',    InputOption::VALUE_NONE,    'Show version');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        if ($input->getOption('version')) {
+            $this->showVersion($input, $output);
+        } else {
+            $this->convert($input, $output);
+        }
+    }
+
+    private function convert(InputInterface $input, OutputInterface $output)
     {
         $readme = $input->getOption('input') ?: $input->getArgument('input');
         if ($readme === null) {
@@ -53,5 +65,10 @@ class Convert extends Command
         } else {
             $output->writeln($markdownData, OutputInterface::OUTPUT_RAW);
         }
+    }
+
+    private function showVersion(InputInterface $input, OutputInterface $output)
+    {
+        $output->writeln($this->getApplication()->getLongVersion());
     }
 }
