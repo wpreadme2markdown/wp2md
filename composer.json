@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "symfony/console": "^3.2",
+        "symfony/console": "^3.2|^4.0",
         "wpreadme2markdown/wpreadme2markdown": "^3.0",
         "php": ">= 5.5.9"
     },
