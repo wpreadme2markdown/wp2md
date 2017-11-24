@@ -26,7 +26,7 @@ function exec_composer($path)
 
     $composer = trim($composer);
 
-    pake_sh("$composer update --no-dev -o --prefer-lowest");
+    pake_sh("$composer update --no-dev -o");
 
     chdir($prev_dir);
 }

@@ -17,6 +17,11 @@
             "email": "sunchaser@sunchaser.info"
         }
     ],
+    "config": {
+        "platform": {
+            "php": "5.5.9"
+        }
+    },
     "require": {
         "symfony/console": "^3.2|^4.0",
         "wpreadme2markdown/wpreadme2markdown": "^3.0.1",
