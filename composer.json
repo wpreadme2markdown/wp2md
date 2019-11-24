@@ -20,7 +20,8 @@
     "config": {
         "platform": {
             "php": "5.5.9"
-        }
+        },
+        "sort-packages": true
     },
     "require": {
         "symfony/console": "^3.2|^4.0|^5.0",
@@ -28,6 +29,7 @@
         "php": ">= 5.5.9"
     },
     "require-dev": {
+        "ext-json": "*",
         "indeyets/pake": "~1.99",
         "secondtruth/phar-compiler": "~1.1"
     },

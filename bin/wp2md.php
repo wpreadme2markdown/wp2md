@@ -5,6 +5,8 @@
  * @license MIT
  */
 
+use WPReadme2Markdown\Cli\Application;
+
 if (is_file(__DIR__ . '/../vendor/autoload.php')) {
     require(__DIR__ . '/../vendor/autoload.php');
 } elseif (is_file(__DIR__ . '/../../../autoload.php')) {
@@ -17,7 +19,5 @@ if (is_file(__DIR__ . '/../vendor/autoload.php')) {
     );
 }
 
-$application = new \Symfony\Component\Console\Application('wp2md', '@package_version@');
-$application->add(new \WPReadme2Markdown\Cli\Convert());
-$application->setDefaultCommand('wp2md', true);
+$application = new Application('@package_version@', '@lib_version@');
 $application->run();
