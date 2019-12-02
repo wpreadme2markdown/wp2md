@@ -53,5 +53,7 @@ class Convert extends Command
         } else {
             $output->writeln($markdownData, OutputInterface::OUTPUT_RAW);
         }
+
+        return 0;
     }
 }
