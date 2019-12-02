@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.0.3
+
+* Fixed incompatibility with Symfony 5
+
 ## 3.0.2
 
 * Allow Symfony 5 if installed by composer
