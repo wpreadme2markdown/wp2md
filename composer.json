@@ -24,9 +24,10 @@
         "sort-packages": true
     },
     "require": {
+        "php": ">= 5.5.9",
+        "composer-runtime-api": ">= 2.0.0",
         "symfony/console": "^3.2|^4.0|^5.0",
-        "wpreadme2markdown/wpreadme2markdown": "^3.0.1",
-        "php": ">= 5.5.9"
+        "wpreadme2markdown/wpreadme2markdown": "^3.0.1"
     },
     "require-dev": {
         "ext-json": "*",
