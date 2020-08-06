@@ -50,19 +50,10 @@ function run_phar()
 
     pake_echo_action('phar', 'set product version');
 
-    // Versions
-    $bin_file   = file_get_contents($build_dir . '/bin/wp2md.php');
     // App version
+    $bin_file   = file_get_contents($build_dir . '/bin/wp2md.php');
     $version    = trim(pake_sh('git describe --tags HEAD'));
     $bin_file   = preg_replace('/@package_version@/', $version, $bin_file);
-    // Lib version
-    $lock_file = json_decode(file_get_contents($build_dir . '/composer.lock'), true);
-    foreach ($lock_file['packages'] as $package) {
-        if ($package['name'] == 'wpreadme2markdown/wpreadme2markdown') {
-            $bin_file = preg_replace('/@lib_version@/', $package['version'], $bin_file);
-            break;
-        }
-    }
     file_put_contents($build_dir . '/bin/wp2md.php', $bin_file);
 
     pake_echo_action('phar', 'init phar archive');
