@@ -7,26 +7,35 @@ function exec_composer($path)
     $prev_dir = getcwd();
     chdir($path);
 
-    $composer = `which composer`;
+    $composer = 'php composer.phar';
 
-    if (empty($composer)) {
-        // official composer installation guide from https://getcomposer.org/download/
-        copy('https://getcomposer.org/installer', 'composer-setup.php');
-        if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') {
-            echo 'Installer verified';
-        } else {
-            echo 'Installer corrupt';
-        }
-        echo PHP_EOL;
-        pake_sh('/usr/bin/env php composer-setup.php');
-        unlink('composer-setup.php');
+    install_composer($path);
 
-        $composer = 'php composer.phar';
+    echo pake_sh("$composer --version");
+
+    pake_echo_action('composer', 'install dependencies');
+    pake_sh("$composer update --no-dev --classmap-authoritative");
+
+    chdir($prev_dir);
+}
+
+function install_composer($path)
+{
+    $prev_dir = getcwd();
+    chdir($path);
+
+    pake_echo_action('composer', 'install composer');
+    // official composer installation guide from https://getcomposer.org/download/
+    pake_copy('https://getcomposer.org/installer', $path . '/composer-setup.php');
+    $hash = file_get_contents('https://composer.github.io/installer.sig') ?: NAN;
+    if (hash_file('SHA384', 'composer-setup.php') === $hash) {
+        echo 'Installer verified';
+    } else {
+        echo 'Installer or signature is corrupt';
     }
-
-    $composer = trim($composer);
-
-    pake_sh("$composer update --no-dev -o");
+    echo PHP_EOL;
+    pake_sh('php composer-setup.php --2');
+    pake_unlink($path . '/composer-setup.php');
 
     chdir($prev_dir);
 }
