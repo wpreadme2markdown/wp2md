@@ -19,5 +19,5 @@ if (is_file(__DIR__ . '/../vendor/autoload.php')) {
     );
 }
 
-$application = new Application('@package_version@', '@lib_version@');
+$application = new Application('@package_version@');
 $application->run();
