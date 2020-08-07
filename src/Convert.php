@@ -34,7 +34,7 @@ class Convert extends Command
     {
         $readmeFile   = $this->getReadmeFile($input);
         $readmeData   = file_get_contents($readmeFile);
-        $markdownData = Converter::convert($readmeData, $this->getSlug($input, $readmeFile));
+        $markdownData = Converter::convert($readmeData, $input->getOption('slug'));
         $markdownFile = $input->getOption('output') ?: $input->getArgument('output');
 
         if ($markdownFile) {
@@ -61,16 +61,5 @@ class Convert extends Command
         }
 
         return $readme;
-    }
-
-    private function getSlug(InputInterface $input, $readmeFile)
-    {
-        if ($readmeFile === 'php://stdin') {
-            $readmeBase = null;
-        } else {
-            $readmeBase = basename($readmeFile, '.txt');
-        }
-
-        return $input->getOption('slug') ?: $readmeBase;
     }
 }
