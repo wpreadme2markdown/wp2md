@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.1.0
+
+* Depend on composer v2
+* Base library updated to 3.1.0 in phar
+
 ## 3.0.3
 
 * Fixed incompatibility with Symfony 5
