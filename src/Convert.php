@@ -32,28 +32,45 @@ class Convert extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $readme = $input->getOption('input') ?: $input->getArgument('input');
-        if ($readme === null) {
-            $readme = 'php://stdin';
-        } else {
-            $readme = realpath($readme);
+        $readmeFile   = $this->getReadmeFile($input);
+        $readmeData   = file_get_contents($readmeFile);
+        $markdownData = Converter::convert($readmeData, $this->getSlug($input, $readmeFile));
+        $markdownFile = $input->getOption('output') ?: $input->getArgument('output');
 
-            if (is_file($readme) === false || is_readable($readme) === false) {
-                throw new RuntimeException('You should specify a readable readme file');
-            }
-        }
-
-        $readmeData = file_get_contents($readme);
-
-        $markdownData = Converter::convert($readmeData, $input->getOption('slug'));
-
-        $markdown = $input->getOption('output') ?: $input->getArgument('output');
-        if ($markdown) {
-            file_put_contents($markdown, $markdownData);
+        if ($markdownFile) {
+            file_put_contents($markdownFile, $markdownData);
         } else {
             $output->writeln($markdownData, OutputInterface::OUTPUT_RAW);
         }
 
         return 0;
+    }
+
+    private function getReadmeFile(InputInterface $input)
+    {
+        $readme = $input->getOption('input') ?: $input->getArgument('input');
+
+        if ($readme === null) {
+            return 'php://stdin';
+        }
+
+        $readme = realpath($readme);
+
+        if (is_file($readme) === false || is_readable($readme) === false) {
+            throw new RuntimeException('You should specify a readable readme file');
+        }
+
+        return $readme;
+    }
+
+    private function getSlug(InputInterface $input, $readmeFile)
+    {
+        if ($readmeFile === 'php://stdin') {
+            $readmeBase = null;
+        } else {
+            $readmeBase = basename($readmeFile, '.txt');
+        }
+
+        return $input->getOption('slug') ?: $readmeBase;
     }
 }
