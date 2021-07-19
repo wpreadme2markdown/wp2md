@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.0
+
+* Dropped support for PHP earlier than 7.2
+* Updated wp2md library to 4.0
+
 ## 3.1.0
 
 * Depend on composer v2

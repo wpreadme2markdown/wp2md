@@ -14,7 +14,7 @@ class Application extends ConsoleApplication
 {
     private $libVersion;
 
-    public function __construct($version)
+    public function __construct(string $version)
     {
         if ($version === '@package_version@') {
             // if not a root package, get version from composer
@@ -30,7 +30,7 @@ class Application extends ConsoleApplication
         $this->libVersion = InstalledVersions::getPrettyVersion('wpreadme2markdown/wpreadme2markdown');
     }
 
-    public function getLongVersion()
+    public function getLongVersion(): string
     {
         return parent::getLongVersion() . PHP_EOL . sprintf('WP Readme to Markdown Library <info>%s</info>', $this->libVersion);
     }
