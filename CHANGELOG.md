@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.0.1
+
+* Updated wp2md library to 4.0.1
+
 ## 4.0.0
 
 * Dropped support for PHP earlier than 7.2
