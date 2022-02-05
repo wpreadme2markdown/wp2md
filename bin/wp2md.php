@@ -5,6 +5,8 @@
  * @license MIT
  */
 
+declare(strict_types=1);
+
 use WPReadme2Markdown\Cli\Application;
 
 if (is_file(__DIR__ . '/../vendor/autoload.php')) {

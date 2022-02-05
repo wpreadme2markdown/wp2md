@@ -5,6 +5,8 @@
  * @license MIT
  */
 
+declare(strict_types=1);
+
 namespace WPReadme2Markdown\Cli;
 
 use Composer\InstalledVersions;
