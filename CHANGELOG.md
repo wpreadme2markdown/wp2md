@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.2
+
+* Updated wp2md library to 4.0.3
+* Symfony 6 is now allowed with the composer based setups
+
 ## 4.0.1
 
 * Updated wp2md library to 4.0.1
