@@ -27,6 +27,7 @@ class Convert extends Command
         $this->addArgument('input',         InputArgument::OPTIONAL,        'WordPress Plugin readme.txt');
         $this->addArgument('output',        InputArgument::OPTIONAL,        'Markdown file');
 
+        $this->addOption('skip-image-check', null, InputOption::VALUE_NONE,        'Skip validating images source' );
         $this->addOption('input',   'i',    InputOption::VALUE_REQUIRED,    'WordPress Plugin readme.txt');
         $this->addOption('output',  'o',    InputOption::VALUE_REQUIRED,    'Markdown file');
         $this->addOption('slug',    's',    InputOption::VALUE_REQUIRED,    'Plugin slug');
@@ -36,7 +37,7 @@ class Convert extends Command
     {
         $readmeFile   = $this->getReadmeFile($input);
         $readmeData   = file_get_contents($readmeFile);
-        $markdownData = Converter::convert($readmeData, $input->getOption('slug'));
+        $markdownData = Converter::convert($readmeData,  $input->getOption('slug'), ! (bool) $input->getOption('skip-image-check'));
         $markdownFile = $input->getOption('output') ?: $input->getArgument('output');
 
         if ($markdownFile) {
