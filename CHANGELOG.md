@@ -1,6 +1,10 @@
 # Changelog
 
-# 4.1.0
+## 4.1.1
+
+* Fix phar not including necessary files
+
+## 4.1.0
 
 * Added `--skip-image-check` option provided by wp2md library 4.1.0 [#4] (by [@LC43])
 * Symfony 7 allowed
