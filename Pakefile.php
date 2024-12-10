@@ -73,7 +73,7 @@ function run_phar()
 
     $phar->addDirectory('bin');
     $phar->addDirectory('src');
-    $phar->addDirectory('vendor', array('!*.php', '*Test.php', '*Tester.php', '*/Tests/*'));
+    $phar->addDirectory('vendor', array('*Test.php', '*Tester.php', '*/Tests/*'));
 
     $phar->addIndexFile('bin/wp2md.php', 'cli');
 
