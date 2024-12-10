@@ -5,5 +5,4 @@ composer.phar
 /build/
 /vendor/
 /test/
-/composer.lock
 /debug
