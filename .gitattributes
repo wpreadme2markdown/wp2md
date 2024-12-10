@@ -2,3 +2,4 @@
 /*.xml          export-ignore
 /CHANGELOG.md   export-ignore
 /Pakefile.php   export-ignore
+/composer.lock  export-ignore
