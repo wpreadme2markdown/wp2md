@@ -33,7 +33,8 @@
         "ext-json": "*",
         "indeyets/pake": "~1.99",
         "php5friends/polyfill-create_function": "^0.0.4",
-        "secondtruth/phar-compiler": "~1.1"
+        "secondtruth/phar-compiler": "~1.1",
+        "squizlabs/php_codesniffer": "*"
     },
     "autoload": {
         "psr-4": {

@@ -1,4 +1,5 @@
 <?php
+
 pake_desc('Build phar archive');
 pake_task('phar');
 

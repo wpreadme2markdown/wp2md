@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Christian Archer <sunchaser@sunchaser.info>
  * @copyright © 2014, Christian Archer

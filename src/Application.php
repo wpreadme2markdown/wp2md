@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Christian Archer <sunchaser@sunchaser.info>
  * @copyright © 2019, Christian Archer
@@ -34,6 +35,7 @@ class Application extends ConsoleApplication
 
     public function getLongVersion(): string
     {
-        return parent::getLongVersion() . PHP_EOL . sprintf('WP Readme to Markdown Library <info>%s</info>', $this->libVersion);
+        return parent::getLongVersion() . PHP_EOL .
+            sprintf('WP Readme to Markdown Library <info>%s</info>', $this->libVersion);
     }
 }
