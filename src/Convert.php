@@ -20,7 +20,7 @@ use WPReadme2Markdown\Converter;
 
 class Convert extends Command
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('wp2md');
         $this->setDescription('Converts WordPress Plugin Readme files to GitHub Flavored Markdown');
@@ -34,7 +34,7 @@ class Convert extends Command
         $this->addOption('slug', 's', InputOption::VALUE_REQUIRED, 'Plugin slug');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $readmeFile   = $this->getReadmeFile($input);
         $readmeData   = file_get_contents($readmeFile);
@@ -50,7 +50,7 @@ class Convert extends Command
         return 0;
     }
 
-    private function getReadmeFile(InputInterface $input)
+    private function getReadmeFile(InputInterface $input): string
     {
         $readme = $input->getOption('input') ?: $input->getArgument('input');
 
