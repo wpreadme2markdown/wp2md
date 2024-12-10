@@ -6,3 +6,4 @@ composer.phar
 /vendor/
 /test/
 /composer.lock
+/debug
