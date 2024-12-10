@@ -1,5 +1,11 @@
 # Changelog
 
+# 4.1.0
+
+* Added `--skip-image-check` option provided by wp2md library 4.1.0 [#4] (by [@LC43])
+* Symfony 7 allowed
+* Rebuilt with all dependencies updated, this should fix PHP 8.1-8.4 deprecations
+
 ## 4.0.2
 
 * Updated wp2md library to 4.0.3
@@ -44,3 +50,7 @@ Previous version was wpreadme2markdown/wpreadme2markdown 2.0.2
 * CLI now uses Symfony 3.2 and requires PHP 5.5.9
 * PHAR is now built with lowest required dependency versions
 * CLI now works in single command mode, `wp2md convert` is now simply `wp2md`
+
+[@LC43]: https://github.com/LC43
+
+[#4]: https://github.com/wpreadme2markdown/wp2md/pull/4
