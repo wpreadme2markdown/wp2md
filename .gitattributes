@@ -1,0 +1,4 @@
+/.git*          export-ignore
+/*.xml          export-ignore
+/CHANGELOG.md   export-ignore
+/Pakefile.php   export-ignore
