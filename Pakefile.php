@@ -15,7 +15,7 @@ function exec_composer($path)
     echo pake_sh("$composer --version");
 
     pake_echo_action('composer', 'install dependencies');
-    pake_sh("$composer update --no-dev --classmap-authoritative");
+    pake_sh("$composer install --no-dev --classmap-authoritative");
 
     chdir($prev_dir);
 }
@@ -56,6 +56,7 @@ function run_phar()
 
     // make clean library installation without dev dependencies
     pake_copy(__DIR__ . '/composer.json', $build_dir . '/composer.json');
+    pake_copy(__DIR__ . '/composer.lock', $build_dir . '/composer.lock');
     exec_composer($build_dir);
 
     pake_echo_action('phar', 'set product version');
