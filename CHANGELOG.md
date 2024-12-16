@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.1.2
+
+* Rebuild phar with wp2md library 4.1.1
+
 ## 4.1.1
 
 * Fix phar not including necessary files
