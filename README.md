@@ -2,6 +2,12 @@
 
 [![Packagist](https://img.shields.io/packagist/v/wpreadme2markdown/wp2md.svg?maxAge=2592000)](https://packagist.org/packages/wpreadme2markdown/wp2md)
 
+> The project is retired, my main reasons are:
+> * I no longer use WordPress and develop plugins for it
+> * I now agree with the idea that GitHub's readme and WordPress readme serve different purpose
+>   and should therefore be different
+> * I see an effort from WordPress to prevent some features of this tool from working (screenshot detection)
+
 Convert WordPress Plugin Readme Files to GitHub Flavored Markdown.
 The tool is built on the [WP Readme to Markdown Library](https://github.com/wpreadme2markdown/wp-readme-to-markdown)
 
