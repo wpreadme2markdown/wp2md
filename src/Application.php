@@ -28,7 +28,7 @@ class Application extends ConsoleApplication
 
         parent::__construct('WP Readme to Markdown CLI', $version);
 
-        $this->add(new Convert());
+        $this->addCommands([new Convert()]);
         $this->setDefaultCommand('wp2md', true);
         $this->libVersion = InstalledVersions::getPrettyVersion('wpreadme2markdown/wpreadme2markdown');
     }
