@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.2.0
+
+* Require PHP 8.1
+* Bump the base library to 5.0
+* Allow Symfony 8 and drop Symfony 5
+
 ## 4.1.2
 
 * Rebuild phar with wp2md library 4.1.1
