@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.3.0
+
+* Bump the base library to 6.0
+* Image checking is permanently disabled, `--skip-image-check` is a no-op
+* ``--screenshot-extension`` must be specified for the screenshot section to appear 
+
 ## 4.2.0
 
 * Require PHP 8.1
