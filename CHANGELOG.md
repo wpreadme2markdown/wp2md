@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.3.1
+
+* Rebuild without Guzzle (unused dependency)
+
 ## 4.3.0
 
 * Bump the base library to 6.0
